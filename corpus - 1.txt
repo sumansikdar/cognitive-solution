@@ -1,0 +1,253 @@
+Compensation:
+Segmented Security Group is involved and the concerned security group is not included in the Segmented Security Group, so One Time Payment(OTP) is not visible.
+
+Compensation:
+Request Compensation Change business process not executed for the concerned employee post Ceiling amount updated in the Allowance Plan.Execute Request Compensation Change business process for the concerned Employee after changing the ceiling amount, the new ceiling amount will be reflected.
+
+Compensation:
+Configuration of Period Salary Plan as One Time Payment Plan can be a possible solution.
+
+Compensation:
+One method is to create a Build Date CF on Comp Rule Targetable BO to pick up 1st July of the current effective year.Use it in the eligibility rule to compare with hire date.
+
+Compensation:
+Include Compensation Plan in the Compensation Package.
+
+Benefits:
+It was found that the dependent was already enrolled in one of the benefit plans for the employee.Advised business to rescind the Benefit event comprising of the dependent enrolled, post which the delete option was available.
+
+Benefits:
+Clients may come up with requirement to decommission existing provider and move to a new provider.Once a benefit plan is created, we cannot change the provider.We can possible rename the provider if the provider is being referred to by only one plan but will need to ensure there are no integration impact with this approach.In all other cases, we need to create a new benefit plan with the new provider mirroring existing benefit plan set up.We can then map employees enrolled in plan A to default to Plan B by setting up Benefit plan mapping at Benefit Group Level.
+
+Benefits:
+During Global implementation of benefits often client can come back asking a question if its possible to restrict relationship based on countries.As of today, the Drop down list under relationship is a global list and cannot be localized.A brainstorm is available in Workday community for the ability to localize this functionality.(https://community.workday.com/brainstorms/24482)
+Until then, other possible ways to restrict users from adding incorrect relationship types is through configuring validation rule in dependent BP based on relationship type proposed and work location.
+
+Benefits:
+Yes, you can create an Admin Benefit event with the auto enroll coverage type and then set up loss of coverage Tab in enrollment event rule with Do Not Use Auto Enroll Flag set to Yes.This way you will be able to waive the auto enroll plan using this benefit event.
+
+Benefits:
+For  a Retirement Savings Benefit, Employer contribution if defined is fixed and will be applicable for all the employees enrolled in that plan.
+In your case, Once you update the Retirement Savings Employer contribution from None to say (100%), then the new change will be applied on all employees who have a benefit event run in the system with an effective date after your changes effective date.
+Example: We have a Retirement Plan configured with 5% employee contribution and Employer Contribution is None
+Employee A is enrolled in this plan effective 10/01/2006
+Employee B is enrolled in this plan effective 02/01/2021
+Now if you update the employer contribution % from None to 5% effective 01/01/2021, Then the coverage history for employee B will start showing the employer contribution as 5% for the Retirement plan since a benefit event is already run in workday after your changes.For Employee A, coverage history will still show the employer percentage as no value as you are yet to run a benefit event for this Employee.Once you process a Retirement savings related benefit event for Employee A after 01/01/2021 in my above example, his coverage history will also start showing the changes.
+So steps you need to perform are:
+1.Make the updates to the benefit plan as of the required effective date
+2.Identify all the enrolled employees in the plan
+3.Run a benefit event on all enrolled employees with an effective date on or after the Benefit Plan update date(Using a new Passive event or EIB).
+
+Benefits:
+This is expected behaviour from workday.All manually initiated benefit events refers to change benefits Business process which then calls the Change benefits for Life event BP.Passive event Business process will not be called in this case.Same is the case for any benefit events that are triggered as part of a data change (eg: Change job) vs triggering the event manually.All Benefit events manually triggered will call change benefits bp which then calls change benefits for life event BP.Thus the notification configured at change benefits for life event BP will be triggered in this example.
+
+Benefits:
+No, once a plan is created with flat rate, you cannot change it to a calculated rate plan.Hence preferred approach is to always configure the plan as a calculated rate plan, create flat amount rate and link it to the healthcare plan.This way you have the flexibility to change the rate calculation for the plan in the future if required.
+
+HCM Core:
+EIB template is filled in wrong column.Please reverify the EIB template and populate the data under both the translation columns and recheck.
+
+HCM Core:
+The blank boxes appear if only some and not all the guided tours are translated.If we have 5 guided tours and out of these only 3 are translated, when the translated language is displayed on screen, the guided tours which were not translated will appear as blank box (the non - translated guided tours will not show up in English).
+
+HCM Core:
+Proxying in as the person does not usually work to check translations.To check the translations proxy in as the person, change the locale and the preffered language of the employee, Log off and log back in as the person.
+
+HCM Core:
+The condition based help text work based on the location of the initiator or the person carrying out the transaction rather than the person on whom the transaction is being carried out.There is a brainstorm for the same https://community.workday.com/brainstorms/326006.
+
+HCM Core:
+The Job profile from the proposed position do not default during a change job process in the following cases
+- the current and proposed job profiles belong to the same Job Family, and
+- there is no Job Requisition in the proposed position, and
+- the proposed position has Hiring Restrictions set with a Job Profile AND Job Family
+There a brainstorm regarding the same https://community.workday.com/brainstorms/701657.
+
+HCM Core:
+There are numerous cost centers to choose from which can be very confusing and troublesome from an end user perspective while selecting from the drop down.
+Solution propose to client -
+1.Use reporting to filter out the relevant cost centers.
+2.Usually relevant cost centers can only assigned from "Organization Assignments" tab in sup org to narrow down, otherwise the feature to show relevant cost centers in drop down is not yet available in Workday.Can find the brainstorm link here : https://community.workday.com/comment/798101#comment-798101.
+
+HCM Core:
+In this particular case, Position is not available for Hiring as it is marked as Frozen.Remove Hiring Freeze for the position.
+
+HCM Core:
+As position hire date is in past, position is not frozen and unfilled position.In this particular case, position is inactive for hiring.
+
+Learning:
+LinkedIn Learning , Harvard ManageMentor, YouTube, Udemy for Business, Skillsoft (excluding Skillsoft Percipio) are currently available.
+
+Learning:
+Delivered Learning Content by Rating report shows how many courses have a rating and what the overall rounded rating is for the course.You can report on both by creating a custom report on the Learning Content data source and using the Ratings business object.
+
+Learning:
+No, the course comments and ratings are tenant wide setting.Either you can enable or disable them.These cannot be restricted as per course or any other criteria.
+
+Learning:
+In the standard Browse Learning Content report for Learners, there is a filter for Language but this filter will only appear if language are selected and tagged to a course while creating a course.Language is a non-mandatory field.
+
+Learning:
+Go to task Configure Optional Fields and choose Mass Drop.Field: Learning Drop Course Reason & Criteria to Required for All & in case there are any specific security group then you can select the Learning roles.
+
+Learning:
+Most large scale enterprises have Compliance training tracking needs.Touchpoint across Talent , HCM and Learning now enables to report and then use the data to send campaigns to target audience and then those certifications can be completed.
+
+Learning:
+Yes, uploading of external certifications is possible via the add certification BP from the talent module.However, the same will not be reflected on the learner transcript.A way around to overcome the transcript requirement is to do a historic load of the same course, it will appear on the learner transcript.
+
+Learning:
+Create a "Aggregate related instance" calculated field for the worker (learner) and compare the course titles to the course title that the learner is enrolling.If it matches, can setup up a soft alert or error message for the same.
+
+Learning:
+Survey can be edited only in draft mode.
+
+Learning:
+The Learning Administrator has the access to create learning instructors and learning assessors, there is no need of a security role to be created for the same until and unless they are to be provided with some extra-ordinary access.
+
+Learning:
+You have the option to choose if the learner has to just enrol or the learner has to complete the particular pre-requisite, accordingly the learner has to enrol or complete the pre-requisite to complete the target course.
+
+Learning:
+The language cannot be mandatory field, but a creation of a Learning validation rule can be created so that there is a hard-coded error for adding the language before submission of the task.
+
+Learning:
+Yes, the drop reasons can be made mandatory for all the employees.The learner will have to provide the drop reason to drop the course.Configure Optional Fields > Drop Learning Enrollment > Drop Course > Required for all.
+
+Learning:
+No, "Browse Learning Content" is a Workday Delivered Report, but we can create a custom report for the same and add the filters according to the requirement.
+
+Learning:
+Yes, Mass Enroll function gives one access to create the audience (to be enrolled) according to their functionality.
+
+Learning:
+You can keep the survey in the draft form to use it as a template, you can copy the survey then and edit the same.But when the survey is in the active form You cannot edit or copy the survey.
+
+Learning:
+You have the option to choose if the learner has to just enroll or the learner has to complete the particular pre-requisite.
+
+Learning:
+Yes, WD generates a Ref ID but recommendation is that you put a ID for tracking purposes.
+
+Learning:
+Recommended for you does not consider interests, but it is based on machine learning.
+
+Learning:
+Not Started is basically the courses that the learner has enrolled into the course but has not started yet, the required for you are the mandatory courses that the learner has to complete (For example On-boarding courses).
+
+Learning:
+There is an option for the user to select there language preferences, but that would be tenant wide, not specifically for learning.But for the courses it totally depends upon the content.
+
+Learning:
+Learning does not have a Course Completion business process.As an alternative, you can build a custom report and send out an alert to meet the requirements.Custom Report with filter - Completion Status = Complete.Based on this report configure the Alert.
+
+Learning:
+Replace  this worklet on the Learning dashboard with a custom matrix report called "My Learning Progress"  that shows the completion status number and the ability to drill down into the details of the enrollment related to the worker.The enrolled content column with the name of the content allows the learner to go directly to the content to complete it.This can be modified to show only required courses with an enrollment record.
+
+Learning:
+The progress of Campaign can be shown by making a Campaign Progress Graph - Custom Report.It will a matrix custom report that will be created to analyse who has started/in progress/completed a particular course of a campaign.Details of the report - https://community.workday.com/node/560371.
+
+Learning:
+When you are uploading Media that is a document or mp3, if you save the file name to start with "Click here - " the learner knows what to do to open or download the file for the lesson.The button that the learner needs to click is the file name.So, if you have a participant guide, save the file name as "Click here - Participant Guide for xxxx course.".
+
+Learning:
+Course might be part of active Campaign and along with that has been sent as Mass Enroll by Learning Admin or Manager, leading to due date reminder form both Campaign setting and also from reminder set on Course.If course is part of a Campaign, then it should not be sent as a Mass Enroll in Course by LA/Manager.
+
+Absence:
+Maintain Accrual Adjustment / Time Off Adjustment / Accrual Override / Time Off Override.
+
+Absence:
+Yes, add a schedule calendar event, do not add any start or end time and allow recurrence every day.
+
+Absence:
+1) Edit the Accrual
+2) On the Time Off Plan Overrides tab, Enter the value for the limit
+3) Give the same accrual name in Based on prompt
+4) Balance period will be displayed based on the Time Off Plan, the accrual is associated with.
+
+Integration:
+Payroll Result:
+Payroll Result is a data source, that returns payroll data for individual workers or all the employees for a specific range of dates.This data source can include Gross, Net Pay, Taxes, Deductions,
+Payroll Result Line:
+Multiple Payroll Result Lines forms a Payroll result.Payroll Result Line is a data source, that returns pay component level details for individual workers or all the employees for a specific period.
+
+Integration:
+Execute the task 'maintain password rules'.Add the ISU's in 'System Users exempt from password expiration'.
+
+Integration:
+Store the values in a Copy step as a variable while aggregating threads from parallel subroutine.Call the same variable after the component.
+
+Integration:
+For posted journals, since WD allows no changes to posted journals, the 'Last Updated Moment' field will give the posted date for the journal line.
+
+Integration:
+Enable "Include Prior Values" option in the attributes of CCW.These values will only appear in case of changes only enabled files.
+
+Integration:
+Use the function xtt:map="Map_Name" will pull the required values from the tenant and help in the transformation of the output file,if setup via Configure Integration Maps.
+
+Integration:
+Check if the option 'Include Inactive Workers in Full File' has been enabled in integration attributes of the CCW.If terminated employees still not appearing, accordingly check the parameters of the CCW and update it.
+
+Compensation:
+In the following scenarios compensation package will not be defaulted -
+1) Eligibility rule is not defined on the compensation package
+2) Employee is eligible for more than one compensation package
+3) Employee is not eligible for the compensation package.
+
+Compensation:
+In the following scenarios compensation grade will not be defaulted -
+1) Employee is not eligible for the compensation grade, if eligibility rule is defined on the compensation grade OR Grade is not maintained on the job profile
+2) Employee is eligible for more than one compensation grade
+3) Compensation grade is not maintained on the Employee's compensation package
+4) Compensation package is not defaulted.
+
+Compensation:
+In the following scenarios compensation plan will not be defaulted -
+1) Employee is not eligible for the compensation plan
+2) Compensation plan is not maintained on the Employee's compensation package
+3) Compensation package is not defaulted.
+
+Compensation:
+In the following scenarios allowance plan will not be defaulted -
+1) Employee is not eligible for the allowance plan
+2) Compensation plan is not maintained on the Employee's compensation package.
+
+HCM Core:
+Use the View Worker Start Date Correction task to track the worker start date correction process.The task grid displays both the proposed action and the status for each event.When an event is In Review, the process won't continue until the notified user takes action on that event.When an event automatically corrects, rescinds, or cancels, Workday adds a system-generated comment to the event process history.
+
+Absence:
+Check for Annual Leave time off correction or overrides during the period.Check employees worker history for any correction in original Hiring date.There could be a possibility that Annual Leave time off entitlement is dependant on the day of the month the employee is hired.
+
+HCM Core:
+1) You can use the Correct Worker Start Date business process to correct a worker's hire date
+2) Best suited to administrator-level users who have permission to view all in progress and completed events for a worker
+3) Connections and Touchpoints:Because the Correct Worker Start Date business process affects worker events, it can interact with multiple areas of Workday, including:
+Absence Management, Benefits, Compensation, Onboarding, Payroll, Time Tracking.
+
+Performance reviews can be cancelled by two ways -
+1)  Using Mass Operation Management Task :
+Go to task: Mass Operation Management--> Select Mass Operation Type "Cancel Business Process"--> Input report "PMP Cancellation"-->Run-->Select sup org---> Select all records--> Cancel
+2) Manual Cancellation--> Select individual Performance review records under sup org--> Actions-->Business Process-->Cancel.
+
+Submit Calibration button will not appear to the top Sup org Manager because subordinate manager did not complete calibrate team task to their subordinates.To resolve this issue, top sup org manager need to go to calibrate team status drop down option under calibrate team screen and click on calibration status option.Manager can see list of subordinate employees under calibration process which is in progress.Top sup org manager can submit calibration on behalf of subordinate manager or wait for the respective managers to submit calibrations.Once calibration process gets completed for below sup org employees, top manager can see Submit calibration button enabled to submit.
+
+The reason why the employee is not able to archive the goal is that the Business Process Manage goal is not yet completed.The status of the goals is in "saved for later" status.Employee needs to review his/her goals and push it to complete status.Then employee will be able to archive his/her goals.
+
+"Performance Management report" has "INDEXED" data source.Due to technical limitations REPORT WILL NOT PROVIDE REAL TIME DATA immediately.Updates can take up to 8 hours to reflect in the report.
+
+This issue is related "WALKME" feature deactivation in Chrome browser.As "WALKME" feature was not activated in google Chrome browser, Manager can see "Submit Calibration" button disappear in one to two seconds in chrome browser.We need to activate "WalkMe" feature in Chrome browser and then manager can see Submit button under Calibrate team screen.Other option is to request manager to submit calibration in firefox or IE browsers.
+
+The main reason for this issue was as per standard workday feature, Calibration can be launched for only one organization.In this case, Talent Admin is launching performance reviews for multiple organizations.Due to this reason, Calibration field under "Start performance for organization" screen disappear.If you choose only one organization in "Performance review for Organization" task, Calibration field does not disappear.
+
+In the "Employee review template", "Employee review rule" has been created to input certain conditions to control employee reviews launch for sup orgs.To fix this issue, we need to exclude "Specific compensation grade employees" under "Employee review rule " as per the requirement.Then Performance review's will not get launched for specific compensation grade employees.
+
+Under the employee profile--> Performance tab-->Individual goals section-->Employee cannot see delete goals icon against some goals.This is because these goals got created by employee through "Performance review" template.Employee can only see delete goals icon for adhoc goals created by own under individual "Goals" tab.
+
+Opportunity graph data update happens on weekly basis.The change job performed on the employee creating job transition data was done after tuesday (after the workday weekly update) so the employee should wait for the coming Tuesday for the changes to reflect in the opportunity graph.
+
+
+
+
+
+
