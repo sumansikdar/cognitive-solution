@@ -17,8 +17,8 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='NLP_ChatBot',
     version='1.0.0',
-    description='Hello World app for running Python apps on Bluemix',
+    description='Chatbot for running Python apps on Bluemix',
     long_description=long_description,
-    url='https://github.com/IBM-Bluemix/python-hello-world-flask',
+    url='https://github.com/sumansikdar/cognitive-solution',
     license='Apache-2.0'
 )
